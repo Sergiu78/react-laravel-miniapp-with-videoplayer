@@ -1,0 +1,14 @@
+@import './../global-styles.scss';
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    &__inner {
+        background: $color;
+        color: $colorLight;
+        padding: 24px;
+        text-align: center;
+    }
+}

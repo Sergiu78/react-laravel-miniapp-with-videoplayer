@@ -1,24 +1,30 @@
-import logo from './logo.svg';
+
 import './App.css';
+import { Route, Switch } from 'react-router-dom';
+import General from './routes/General/General'
+import Courses from './routes/Courses/Courses'
+import News from './routes/News/News'
+import Shop from './routes/Shop/Shop'
+import ContextData from './context/Data/ContextData';
+import StateData from './context/Data/StateData';
+import React from 'react';
+import ReducerData from './context/Data/ReducerData';
+import Video from './routes/video/Video'
 
 function App() {
+
+const [stateData, dispatchData] = React.useReducer(ReducerData, StateData)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <Switch>
+     <ContextData.Provider value={{stateData, dispatchData}}>
+        <Route path="/" exact component={General} />
+        <Route path="/courses" component={Courses} />
+        <Route path="/news" component={News} />
+        <Route path="/shop" component={Shop} />
+        <Route path="/video" component={Video} />
+     </ContextData.Provider>
+   </Switch>
   );
 }
 

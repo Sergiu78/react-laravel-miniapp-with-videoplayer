@@ -1,0 +1,13 @@
+@import './variables.module.scss';
+.main {
+    display: flex;
+    background: $lightColor;
+    height: 100vh;
+    &__navbar {
+        width: 15%;
+        background: $color;
+    }
+    &__content {
+        width: 85%;
+    }
+}
